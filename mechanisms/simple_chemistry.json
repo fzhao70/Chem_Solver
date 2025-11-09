@@ -1,0 +1,85 @@
+{
+  "name": "Simple Tropospheric Chemistry",
+  "description": "A simplified tropospheric chemistry mechanism with NOx-O3 chemistry",
+  "species": [
+    "O3",
+    "NO",
+    "NO2",
+    "O1D",
+    "O3P",
+    "M"
+  ],
+  "reactions": [
+    {
+      "name": "NO2 photolysis",
+      "reactants": {
+        "NO2": 1
+      },
+      "products": {
+        "NO": 1,
+        "O3P": 1
+      },
+      "rate": {
+        "photolysis": "JNO2"
+      }
+    },
+    {
+      "name": "O3P + O2 -> O3",
+      "reactants": {
+        "O3P": 1,
+        "M": 1
+      },
+      "products": {
+        "O3": 1
+      },
+      "rate": {
+        "A": 6.0e-34,
+        "n": -2.4,
+        "Ea": 0.0
+      }
+    },
+    {
+      "name": "NO + O3 -> NO2 + O2",
+      "reactants": {
+        "NO": 1,
+        "O3": 1
+      },
+      "products": {
+        "NO2": 1
+      },
+      "rate": {
+        "A": 3.0e-12,
+        "n": 0.0,
+        "Ea": 1500.0
+      }
+    },
+    {
+      "name": "O3 photolysis to O1D",
+      "reactants": {
+        "O3": 1
+      },
+      "products": {
+        "O1D": 1
+      },
+      "rate": {
+        "photolysis": "JO3_O1D"
+      }
+    },
+    {
+      "name": "O1D + M -> O3P + M",
+      "reactants": {
+        "O1D": 1,
+        "M": 1
+      },
+      "products": {
+        "O3P": 1,
+        "M": 1
+      },
+      "rate": {
+        "A": 3.2e-11,
+        "n": 0.0,
+        "Ea": -67.0
+      }
+    }
+  ]
+}

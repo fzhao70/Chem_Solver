@@ -1,0 +1,105 @@
+{
+  "name": "Methane Oxidation Chemistry",
+  "description": "Simplified methane oxidation mechanism with OH chemistry",
+  "species": [
+    "CH4",
+    "OH",
+    "CH3O2",
+    "CH3OOH",
+    "HCHO",
+    "HO2",
+    "H2O",
+    "O2",
+    "M"
+  ],
+  "reactions": [
+    {
+      "name": "CH4 + OH -> CH3O2 + H2O",
+      "reactants": {
+        "CH4": 1,
+        "OH": 1
+      },
+      "products": {
+        "CH3O2": 1,
+        "H2O": 1
+      },
+      "rate": {
+        "A": 2.45e-12,
+        "n": 0.0,
+        "Ea": 1775.0
+      }
+    },
+    {
+      "name": "CH3O2 + HO2 -> CH3OOH + O2",
+      "reactants": {
+        "CH3O2": 1,
+        "HO2": 1
+      },
+      "products": {
+        "CH3OOH": 1
+      },
+      "rate": {
+        "A": 5.2e-12,
+        "n": 0.0,
+        "Ea": -1400.0
+      }
+    },
+    {
+      "name": "CH3OOH + OH -> CH3O2 + H2O",
+      "reactants": {
+        "CH3OOH": 1,
+        "OH": 1
+      },
+      "products": {
+        "CH3O2": 1,
+        "H2O": 1
+      },
+      "rate": {
+        "A": 3.8e-12,
+        "n": 0.0,
+        "Ea": -200.0
+      }
+    },
+    {
+      "name": "CH3OOH photolysis",
+      "reactants": {
+        "CH3OOH": 1
+      },
+      "products": {
+        "HCHO": 1,
+        "HO2": 1,
+        "OH": 1
+      },
+      "rate": {
+        "photolysis": "JCH3OOH"
+      }
+    },
+    {
+      "name": "HCHO photolysis",
+      "reactants": {
+        "HCHO": 1
+      },
+      "products": {
+        "HO2": 2
+      },
+      "rate": {
+        "photolysis": "JHCHO"
+      }
+    },
+    {
+      "name": "HCHO + OH -> HO2",
+      "reactants": {
+        "HCHO": 1,
+        "OH": 1
+      },
+      "products": {
+        "HO2": 1
+      },
+      "rate": {
+        "A": 5.5e-12,
+        "n": 0.0,
+        "Ea": -125.0
+      }
+    }
+  ]
+}
